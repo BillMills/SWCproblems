@@ -34,20 +34,20 @@ body {
 	padding:80px 120px 0;
 	width:784px;
 	height:560px;
-	background: url(../images/bg-sandstone-2.png) repeat scroll 0% -2px transparent; 
+	background: url(../images/bg-sandstone-2.png) repeat scroll 0% -2px transparent;
 	color:rgb(62,62,62);
 	}
 
-/* 
+/*
 	No numbering in the progress bar:
-  add "nonumbers" class to <html> 
+  add "nonumbers" class to <html>
 */
 .nonumbers .full .slide:after{
 	content: '';
 	}
 
-/* 
-	Smooth fading in between slides: 
+/*
+	Smooth fading in between slides:
 	add "fade" class to <html>
 */
 .fade .full .slide section {
@@ -58,13 +58,13 @@ body {
 	        transition: opacity 1s;
   opacity: 0;
 }
-.fade .full .slide:target section { 
-	opacity: 1; 
+.fade .full .slide:target section {
+	opacity: 1;
 }
-.fade .full .slide { 
-	background: url(../images/bg-sandstone-2.png) repeat scroll 0% -2px transparent; 
+.fade .full .slide {
+	background: url(../images/bg-sandstone-2.png) repeat scroll 0% -2px transparent;
 }
-/* 
+/*
 	Picture frame
 */
 .frame {
@@ -75,7 +75,7 @@ body {
 }
 .frame img {
 
-  border: 5px solid #f8f8f8; z-index: 2; display: block; 
+  border: 5px solid #f8f8f8; z-index: 2; display: block;
 }
 .frame::after {
   content: '';
@@ -100,11 +100,11 @@ body {
   display: block;
   width: 5px;
   height: 5px;
-  background-image: 
+  background-image:
     -webkit-linear-gradient(top, #f1f1f1 0%, #333 80%, #000 95%);
   background-image:
     -moz-linear-gradient(to bottom, #f1f1f1 0%, #333 80%, #000 95%);
-  background-image: 
+  background-image:
     linear-gradient(to bottom, #f1f1f1 0%, #333 80%, #000 95%);
   border-radius: 50%;
   border: 1px solid #666;
@@ -176,7 +176,7 @@ body {
 .slide blockquote.lots {
 	font-style:italic;
 	font-size: 30px;
-	}	
+	}
 .slide blockquote:before {
 	position:absolute;
 	margin:-15px 0 0 -80px;
@@ -214,6 +214,7 @@ blockquote .quotesource {
 		line-height:1.1;
 		font-size:40px;
 		}
+		/*
 	.slide ol > li:before {
 		counter-increment:list;
 		content:counter(list)'.';
@@ -377,7 +378,7 @@ blockquote .quotesource {
 	-o-transform:translate(-50%, -50%);
 	transform:translate(-50%, -50%);
 	}
-	
+
 
 /* List
 ---------------------------------------- */
@@ -552,7 +553,7 @@ blockquote .quotesource {
 .full .progress-off {
 	z-index:1;
 	}
-	
+
 /* special content styles */
 .byline{
 	font-size: 20px;
@@ -617,28 +618,28 @@ small.byline{
 	font-size:30px;
 	}
 
-ul.oneline li { 
-	display: inline; 
-	padding-right: 1em; 
+ul.oneline li {
+	display: inline;
+	padding-right: 1em;
 	}
-ul.oneline li::before, ul.nobull li::before { 
+ul.oneline li::before, ul.nobull li::before {
 	content: '';
 }
-ul.inline li { 
-	display: inline; 
-	padding-right: 0.2em; 
+ul.inline li {
+	display: inline;
+	padding-right: 0.2em;
 	}
-ul.inline li::before { 
+ul.inline li::before {
 	content: '';
 	}
-ul.inline li::after { 
+ul.inline li::after {
 	content: ', ';
 	}
-ul.inline li:last-child::after {	
-	content: '.';	
+ul.inline li:last-child::after {
+	content: '.';
 	}
 
-/* Notes */		
+/* Notes */
 .full .slide .notes {
 	display:none;
 	}
@@ -683,7 +684,7 @@ ul.inline li:last-child::after {
 
 }
 
-/* Meta */ 
+/* Meta */
 .talkdescription {
   font-size: 12px;
   color: #fff;
@@ -737,3 +738,11 @@ pre.code{
 	padding: 0em 0.5em 0em 0.5em;
 }
 
+p.big{
+	font-size: 200%;
+}
+
+ol.mcq{
+	font-size: 150%;
+	list-style-type: lower-alpha;
+}
