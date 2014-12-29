@@ -37,9 +37,7 @@
           <li>ident, personal, family</li>
         </ol>
       </p>
-      <footer class="notes">
-        select name from site
-      </footer>
+      <footer class="notes">b; all distractors indicate which wrong part of the table the student is looking at</footer>
     </section>
   </div></div>
 
@@ -91,31 +89,12 @@
     </section>
   </div></div>
 
-  <div id="q2_3" class="slide"><div>
-    <section>
-      <p>What does <span class='code'>cp</span> do when given several filenames and a directory name, as in:</p>
-      <pre class='code'>
-        $ mkdir backup
-        <br>$ touch a.txt b.txt c.txt
-        <br>$ cp a.txt b.txt c.txt backup
-      </pre>
-      <p>What does <span class='code'>cp</span> do when given three or more filenames, as in:</p>
-      <pre class='code'>
-        cp a.txt b.txt c.txt
-      </pre>
-      <footer class="notes">
-        Remind the students not to worry if they don't remember ALL the little ins and outs of every command.
-        What really matters is they get used to trying things out on their own!
-      </footer>
-    </section>
-  </div></div>
+  <!-- Filtering Data -->
 
-  <!-- Pipes & Filters -->
-
-  <div id="pipesAndFilters" class="slide oneline"><div>
+  <div id="filteringData" class="slide oneline"><div>
     <section>
       <header>
-        <h2>Pipes & Filters</h2>
+        <h2>Filtering Data</h2>
       </header>
       <footer class="notes"></footer>
     </section>
@@ -123,157 +102,88 @@
 
   <div id="q3_1" class="slide"><div>
     <section>
-      <p>What happens if we run <span class='code'>sort</span> on the following file - and why?</p>
-      <pre class='code'>
-        10
-        <br>2
-        <br>19
-        <br>22
-        <br>6
-      </pre>
-      <footer class="notes"></footer>
+      <p class='big'>Normalized salinity readings are supposed to be between 0.0 and 1.0. Write a query that selects all records from <span class='code'>Survey</span> with salinity values outside this range.</p>
+      <p>Hint: putting an expression in brackets, like <span class='code'>(a<3 or a>7)</span> makes it evaluate first, just like in algebra.</p>
+      <footer class="notes">Show an example of building this up:
+        select * from Survey;
+        select * from Survey where quant='sal';
+        select * from Survey where quant='sal' and reading<0;
+        select * from Survey where quant='sal' and reading<0 or reading>1;
+        select * from Survey where quant='sal' and (reading<0 or reading>1);
+      </footer>
     </section>
   </div></div>
 
   <div id="q3_2" class="slide"><div>
     <section>
-      <p>Suppose you have a file called <span class='code'>mylist.txt</span> alongside your <span class='code'>molecules</span> directory, and <span class='code'>mylist.txt</span> contains the single line <span class='code'>molecules</span>. What is the difference between</p>
-      <pre class='code'>
-        ls < mylist.txt
-      </pre>
-      <p>and</p>
-      <pre class='code'>
-        ls mylist.txt
-      </pre>
-      <footer class="notes">
-        This is in the spirit of q2 in the notes, but I think the illustration will be clearer like this.
-      </footer>
+      <p>The SQL test <span class='code'>*column-name* like *pattern*</span> is true if the value <span class='code'>*column-name*</span> matches the pattern given by <span class='code'>*pattern*</span>; the character '%' can be used any number of times in the pattern to mean "match zero or more characters". For example, <span class='code'>A%</span> would match any word starting with a capital A, while <span class='code'>%z%</span> would match any word with 'z' anywhere in it.</p>
+
+      <p>The expression <span class='code'>*column-name* not like *pattern*</span> inverts the test. Using <span class='code'>like</span>, write a query that finds all the records in <span class='code'>Visited</span> that aren't from sites labelled 'DR-something'.</p>
+
+      <footer class="notes">select * from Visited where site not like 'DR-%';</footer>
     </section>
   </div></div>
 
   <div id="q3_3" class="slide"><div>
     <section>
-      <p>Have a look at <span class='code'>shellFiles/questions/salmon.txt</span>.  What does</p>
-      <pre class='code'>
-        uniq salmon.txt
-      </pre>
-      <p>do?  Write a one-line shell command that will list each type of fish in <span class='code'>salmon.txt</span> exactly once.</p>
+      <p>So far, we've seen how to choose columns of data, indicate the table to get those columns from, and optionally sort and filter the results. What are the commands used to start each of these four operations, and in what order do they appear in an SQL query?
 
-      <footer class="notes">
-        sort salmon.txt | uniq
-      </footer>
+        <ol class='mcq' style='font-size:100%;'>
+          <li><span class='code'>select</span>, <span class='code'>from</span>, <span class='code'>and</span> & <span class='code'>or</span>, <span class='code'>order by</span></li> <!--confused boolean operators with filtering keyword-->
+          <li><span class='code'>select</span>, <span class='code'>from</span>, <span class='code'>order by</span>, <span class='code'>where</span></li> <!--right words, but in the order taught rather than the correct order-->
+          <li><span class='code'>select</span>, <span class='code'>from</span>, <span class='code'>where</span>, <span class='code'>order by</span></li> <!--Correct-->
+          <li><span class='code'>.read</span>, <span class='code'>.schema</span>, <span class='code'>.tables</span>, <span class='code'>order by</span></li> <!--confused db operations with db queries-->
+        </ol>
+      </p>
+
+      <footer class="notes">c</footer>
     </section>
   </div></div>
 
-  <div id="q3_4" class="slide"><div>
-    <section>
-      <p>Have a look at <span class='code'>shellFiles/questions/animals.txt</span>.  What text passes through each pipe in the following, and why?</p>
-      <pre class='code'>
-        cat animals.txt | head -5 | tail -3 | sort -r > final.txt
-      </pre>
-
-      <footer class="notes"></footer>
-    </section>
-  </div></div>
-
-  <!-- Loops -->
+  <!-- Calculating New Values -->
 
   <div id="loops" class="slide oneline"><div>
     <section>
       <header>
-        <h2>Loops</h2>
+        <h2>Calculating New Values</h2>
       </header>
       <footer class="notes"></footer>
     </section>
   </div></div>
 
   <div id="q4_1" class="slide"><div>
-    <section>
-      <p>Suppose that <span class='code'>ls</span> initially displays:</p>
-      <pre class='code'>
-        fructose.dat    glucose.dat   sucrose.dat
-      </pre>
-      <p>What is the output of:</p>
-      <pre class='code'>
-        for datafile in *.dat
-        <br>do
-        <br>&nbsp ls *.dat
-        <br>done
-      </pre>
-
-      <footer class="notes"></footer>
+    <section style='font-size:80%'>
+      <p class='big'>After further reading, we realize that Valentina Roerich (<span class='code'>roe</span>) was reporting salinity as percentages. Write a query that returns all of her salinity measurements from the <span class='code'>Survey</span> table with the values divided by 100.</p>
+      <footer class="notes">
+        select reading/100 from Survey where person="roe" and quant="sal";
+      </footer>
     </section>
   </div></div>
 
   <div id="q4_2" class="slide"><div>
-    <section style='font-size:80%'>
-      <p style='margin-bottom:0.5em'>Suppose that <span class='code'>ls</span> initially displays:</p>
-      <pre class='code' style='margin-bottom:0.5em'>
-        fructose.dat    glucose.dat   sucrose.dat
-      </pre>
-      <p style='margin-bottom:0.5em'>What is the output of:</p>
-      <pre class='code' style='margin-bottom:0.5em'>
-        for sugar in *.dat
-        <br>do
-        <br>&nbsp    echo $sugar
-        <br>&nbsp    cat $sugar > xylose.dat
-        <br>done
-      </pre>
-      <ol>
-        <li>Prints <span class='code'>fructose.dat</span>, <span class='code'>glucose.dat</span>, and <span class='code'>sucrose.dat</span>, and copies <span class='code'>sucrose.dat</span> to create <span class='code'>xylose.dat</span>.</li>
-        <li>Prints <span class='code'>fructose.dat</span>, <span class='code'>glucose.dat</span>, and <span class='code'>sucrose.dat</span>, and concatenates all three files to create <span class='code'>xylose.dat</span>.</li>
-        <li>Prints <span class='code'>fructose.dat</span>, <span class='code'>glucose.dat</span>, <span class='code'>sucrose.dat</span>, and <span class='code'>xylose.dat</span>, and copies <span class='code'>sucrose.dat</span> to create <span class='code'>xylose.dat.</span></li>
-        <li>None of the above.</li>
-      </ol>
-
-      <footer class="notes"></footer>
-    </section>
-  </div></div>
-
-  <div id="q4_3" class="slide" style='font-size:80%'><div>
     <section>
-      <p style='margin-bottom:0.5em'><span class='code'>expr</span> does simple arithmetic using command-line parameters:</p>
-      <pre class='code' style='margin-bottom:0.5em'>
-        $ expr 3 + 5
-        <br>8
-        <br>$ expr 30 / 5 - 2
-        <br>4
-      </pre>
-      <p style='margin-bottom:0.5em'>In that case, what's the output of:</p>
-      <pre class='code' style='margin-bottom:0.5em'>
-        for left in 2 3
-        <br>do
-        <br>&nbsp    for right in $left
-        <br>&nbsp    do
-        <br>&nbsp&nbsp        expr $left + $right
-        <br>&nbsp    done
-        <br>done
-      </pre>
-
-      <footer class="notes"></footer>
-    </section>
-  </div></div>
-
-  <div id="q4_4" class="slide"><div>
-    <section>
-      <p>Describe in words what the following does:</p>
+      <p>The <span class='code'>union</span> operator combines the results of two queries; for example, try:</p>
       <pre class='code'>
-        for how in frog11 prcb redig
-        <br>do
-        <br>&nbsp    $how -limit 0.01 NENE01729B.txt
-        <br>done
+        select * from Person where ident="dyer" union select * from Person where ident="roe";
       </pre>
+      <p>Use <span class='code'>union</span> to create a consolidated list of salinity measurements in which Roerich's, and only Roerich's, have been corrected as described in the previous challenge. </p>
 
-      <footer class="notes"></footer>
+      <footer class="notes">
+        select reading from Survey where quant="sal" and person!="roe" union select reading/100 from Survey where quant="sal" and person="roe";
+
+        note first use of !=
+
+      </footer>
     </section>
   </div></div>
 
-  <!--Scripting-->
+
+  <!--Missing Values-->
 
   <div id="scripting" class="slide oneline"><div>
     <section>
       <header>
-        <h2>Scripting</h2>
+        <h2>Missing Values</h2>
       </header>
       <footer class="notes"></footer>
     </section>
@@ -281,19 +191,34 @@
 
   <div id="q5_1" class="slide"><div>
     <section>
-      <p>Have a look at <span class='code'>shellFiles/questions/zoo_1.txt</span> and <span class='code'>zoo_2.txt</span>.  Write a shell script called <span class='code'>species.sh</span> that takes any number of filenames as command-line parameters, and uses <span class='code'>cut</span>, <span class='code'>sort</span>, and <span class='code'>uniq</span> to print a list of the unique species appearing in each of those files separately.</p>
-      <footer class="notes"></footer>
+      <p>Consider a query like:</p>
+      <pre class='code'>
+        select * from someTable order by intensity;
+      </pre>
+
+      <p>where <span class='code'>intensity</span> is some real number. Where in the result should entries with <span class='code'>NULL</span> for <span class='code'>intensity</span> appear, based solely on what we know about <span class='code'>NULL</span> algebra?
+
+        <ol class='mcq' style="font-size:100%;">
+          <li>First</li> <!--Tried it, got this result; didn't apply NULL algebra logic as instructed-->
+          <li>Last</li> <!--Assumed behaviour: leave unknown elements to the end-->
+          <li>They won't appear in the list</li> <!--Assumed behaviour: omit problematic elements. Also, confused with where matching criteria-->
+          <li>Undefined</li> <!--Correct.-->
+        </ol>
+
+      </p>
+      <footer class="notes">
+        NULL algebra isn't enough to decide how to sort NULLs; an additional rule needs to be defined for order by to know what to do; always be aware of how your tools are handling edge cases, and ask yourself, "do I understand how nulls are going to behave in my analysis?".
+      </footer>
     </section>
   </div></div>
 
   <div id="q5_2" class="slide"><div>
     <section>
-      <p>Write a shell script called <span class='code'>longest.sh</span> that takes the name of a directory and a filename extension as its parameters, and prints out the name of the file with the most lines in that directory with that extension. For example:</p>
-      <pre class='code'>
-        $ bash longest.sh /tmp/data pdb
-      </pre>
-      <p>should print the name of the <span class='code'>.pdb</span> file in <span class='code'>/tmp/data</span> that has the most lines.</p>
-      <footer class="notes"></footer>
+      <p class='big'>Write a query that sorts the records in <span class='code'>Visited</span> by <span class='code'>dated</span>, omitting entries for which the date is not known (i.e., is <span class='code'>NULL</span>).</p>
+
+      <footer class="notes">
+        select * from Visited where dated is not null order by dated;
+      </footer>
     </section>
   </div></div>
 
