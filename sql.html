@@ -222,50 +222,12 @@
     </section>
   </div></div>
 
-  <div id="q5_3" class="slide"><div>
-    <section>
-      <p>If you run the command:</p>
-      <pre class='code'>
-        history | tail -5 > recent.sh
-      </pre>
-      <p>the last command in the file is the <span class='code'>history</span> command itself, i.e., the shell has added <span class='code'>history</span> to the command log before actually running it. In fact, the shell always adds commands to the log before running them. Why do you think it does this?</p>
-      <footer class="notes"></footer>
-    </section>
-  </div></div>
+  <!-- CRUD -->
 
-  <div id="q5_4" class="slide" style='font-size:80%'><div>
-    <section>
-      <p>Joel's data directory contains three files: <span class='code'>fructose.dat</span>, <span class='code'>glucose.dat</span>, and <span class='code'>sucrose.dat</span>. Explain what a script called <span class='code'>example.sh</span> would do when run as <span class='code'>bash example.sh *.dat</span> if it contained the following lines:</p>
-      <ol>
-        <li>
-          <pre class='code'>
-            echo *.*
-          </pre>
-        </li>
-        <li>
-          <pre class='code'>
-            for filename in $1 $2 $3
-            <br>do
-            <br>&nbsp    cat $filename
-            <br>done
-          </pre>
-        </li>
-        <li>
-          <pre class='code'>
-            echo $*.dat
-          </pre>
-        </li>
-      </ol>
-      <footer class="notes"></footer>
-    </section>
-  </div></div>
-
-  <!-- Finding Things -->
-
-  <div id="findingThings" class="slide oneline"><div>
+  <div id="crud" class="slide oneline"><div>
     <section>
       <header>
-        <h2>Finding Things</h2>
+        <h2>CRUD (CReate, Update, Destroy)</h2>
       </header>
       <footer class="notes"></footer>
     </section>
@@ -273,36 +235,59 @@
 
   <div id="q6_1" class="slide"><div>
     <section>
-      <p>Write a short explanatory comment for the following shell script:</p>
-      <pre class='code'>
-        find . -name '*.dat' -print | wc -l | sort -n
-      </pre>
+      <ul>
+        <li>Build a table <span class='code'>contacts</span> that has for each entry a name, a phone number, and a birthday, and insert a couple of entries into it.</li>
+        <li>Change one of the values in the table you just made.</li>
+        <li>Delete a contact from the table.</li>
+      </ul>
+
+      <p>For reference, the commands we just learned were:</p>
+      <ul style='font-size:80%;'>
+        <li>Create table: <span class='code'>create table myTable(variableName variableType, ...)</span></li>
+        <li>Insert data: <span class='code'>insert into myTable values(first, second, ...)</span></li>
+        <li>Update data: <span class='code'>update myTable set variableName=something where [condition]</span></li>
+        <li>Delete data: <span class='code'> delete from myTable where [condition]</span></li>
+      </ul>
+
+      <footer class="notes">Intended to be conceptually simple, just lets them walk around the block once on their own.</footer>
+    </section>
+  </div></div>
+
+  <!-- Aggregation Functions -->
+
+  <div id="aggregation" class="slide oneline"><div>
+    <section>
+      <header>
+        <h2>Aggregation Functions</h2>
+      </header>
       <footer class="notes"></footer>
     </section>
   </div></div>
 
-  <div id="q6_2" class="slide" style='font-size:80%'><div>
+  <div id="q7_1" class="slide"><div>
     <section>
-      <p>The <span class='code'>-v</span> flag to <span class='code'>grep</span> inverts pattern matching, so that only lines which do not match the pattern are printed. Given that, which of the following commands will find all files in <span class='code'>/data</span> whose names end in <span class='code'>ose.dat</span> (e.g., <span class='code'>sucrose.dat</span> or <span class='code'>maltose.dat</span>), but do not contain the word <span class='code'>temp?</span></p>
-      <ol>
-        <li>
-          <pre class='code'>
-            find /data -name '*.dat' -print | grep ose | grep -v temp
-          </pre>
-        </li>
-        <li>
-          <pre class='code'>
-            find /data -name ose.dat -print | grep -v temp
-          </pre>
-        </li>
-        <li>
-          <pre class='code'>
-            grep -v temp $(find /data -name '*ose.dat' -print)
-          </pre>
-        </li>
-        <li>None of the above.</li>
-      </ol>
+      <p class='big'>Write a query to determine the last time each site was visited, based on the <span class='code'>Visited</span> table.</p>
+
+      <footer class="notes">select site, max(dated) from Visited group by site;</footer>
+    </section>
+  </div></div>
+
+  <!-- Joins -->
+
+  <div id="joins" class="slide oneline"><div>
+    <section>
+      <header>
+        <h2>Joins</h2>
+      </header>
       <footer class="notes"></footer>
+    </section>
+  </div></div>
+
+  <div id="q8_1" class="slide"><div>
+    <section>
+      <p class='big'>Write a query that lists all radiation readings from the DR-1 site.</p>
+
+      <footer class="notes">select survey.reading from visited join survey on visited.ident=survey.taken where survey.quant='rad' and visited.site='DR-1';</footer>
     </section>
   </div></div>
 
