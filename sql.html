@@ -29,7 +29,7 @@
   <div id="q1_1" class="slide"><div>
     <section>
       <p class='big'>
-        What are the names of the columns in the <span class='code'>Visited</span> table?
+        1. What are the names of the columns in the <span class='code'>Visited</span> table?
         <ol class='mcq'>
           <li>integer, text, text</li>
           <li>ident, site, dated</li>
@@ -44,19 +44,13 @@
   <div id="q1_2" class="slide"><div>
     <section>
       <p class='big'>
-        Write a query that selects only the <span class='code'>name</span> column from the <span class='code'>Site</span> table.
+        2. Write a query that selects only the <span class='code'>name</span> column from the <span class='code'>Site</span> table.
       </p>
-      <footer class="notes">
-        select name from site;
-      </footer>
-    </section>
-  </div></div>
 
-  <div id="q1_3" class="slide"><div>
-    <section>
-      <p class='big'>Does capitalization matter for SQL queries?</p>
+      <p class='big'>3. Does capitalization matter for SQL queries?</p>
       <footer class="notes">
-        Nope. Remind students to try stuff if they don't know!
+        2. select name from site;
+        3. Nope. Remind students to try stuff if they don't know!
       </footer>
     </section>
   </div></div>
@@ -110,6 +104,10 @@
         select * from Survey where quant='sal' and reading<0;
         select * from Survey where quant='sal' and reading<0 or reading>1;
         select * from Survey where quant='sal' and (reading<0 or reading>1);
+
+        or, with no brackets
+        select * from Survey where quant='sal' and reading<0 or quant='sal' and reading>1;
+
       </footer>
     </section>
   </div></div>

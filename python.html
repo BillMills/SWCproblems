@@ -40,10 +40,10 @@
           print c
         </pre>
         <ol class='mcq' style='font-size:100%; line-height:100%'>
+          <li><span class='code'>a</span></li> <!--interpreting variable as char-->
           <li>3</li> <!--original value of c-->
           <li>4</li> <!--correct-->
           <li>8</li> <!--reassignment affects previous calculation-->
-          <li>2</li> <!--reverse equals-->
         </ol>
       </p>
       <footer class="notes"></footer>
@@ -147,7 +147,7 @@
 
   <div id="q3_3" class="slide"><div>
     <section>
-      <p style='font-size:150%'>Write a function called <span class=code>analyze_all</span> that takes a filename pattern as its sole argument and runs analyze for each file whose name matches the pattern.
+      <p style='font-size:150%'>Write a function called <span class=code>analyze_all</span> that takes a filename pattern as its sole argument and runs <span class=code>analyze</span> for each file whose name matches the pattern.
       <footer class="notes"></footer>
     </section>
   </div></div>
@@ -216,75 +216,6 @@
       <p class='big'>Fix <span class='code'>range_overlap</span>. Re-run <span class='code'>test_range_overlap</span> after each change you make.</p>
 
       <footer class="notes"></footer>
-    </section>
-  </div></div>
-
-  <!-- CRUD -->
-
-  <div id="crud" class="slide oneline"><div>
-    <section>
-      <header>
-        <h2>CRUD (CReate, Update, Destroy)</h2>
-      </header>
-      <footer class="notes"></footer>
-    </section>
-  </div></div>
-
-  <div id="q6_1" class="slide"><div>
-    <section>
-      <ul>
-        <li>Build a table <span class='code'>contacts</span> that has for each entry a name, a phone number, and a birthday, and insert a couple of entries into it.</li>
-        <li>Change one of the values in the table you just made.</li>
-        <li>Delete a contact from the table.</li>
-      </ul>
-
-      <p>For reference, the commands we just learned were:</p>
-      <ul style='font-size:80%;'>
-        <li>Create table: <span class='code'>create table myTable(variableName variableType, ...)</span></li>
-        <li>Insert data: <span class='code'>insert into myTable values(first, second, ...)</span></li>
-        <li>Update data: <span class='code'>update myTable set variableName=something where [condition]</span></li>
-        <li>Delete data: <span class='code'> delete from myTable where [condition]</span></li>
-      </ul>
-
-      <footer class="notes">Intended to be conceptually simple, just lets them walk around the block once on their own.</footer>
-    </section>
-  </div></div>
-
-  <!-- Aggregation Functions -->
-
-  <div id="aggregation" class="slide oneline"><div>
-    <section>
-      <header>
-        <h2>Aggregation Functions</h2>
-      </header>
-      <footer class="notes"></footer>
-    </section>
-  </div></div>
-
-  <div id="q7_1" class="slide"><div>
-    <section>
-      <p class='big'>Write a query to determine the last time each site was visited, based on the <span class='code'>Visited</span> table.</p>
-
-      <footer class="notes">select site, max(dated) from Visited group by site;</footer>
-    </section>
-  </div></div>
-
-  <!-- Joins -->
-
-  <div id="joins" class="slide oneline"><div>
-    <section>
-      <header>
-        <h2>Joins</h2>
-      </header>
-      <footer class="notes"></footer>
-    </section>
-  </div></div>
-
-  <div id="q8_1" class="slide"><div>
-    <section>
-      <p class='big'>Write a query that lists all radiation readings from the DR-1 site.</p>
-
-      <footer class="notes">select survey.reading from visited join survey on visited.ident=survey.taken where survey.quant='rad' and visited.site='DR-1';</footer>
     </section>
   </div></div>
 
