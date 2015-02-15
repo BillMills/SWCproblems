@@ -15,7 +15,7 @@
     <p>This slide deck is using the shower system - roll over the previews to see the notes and click any slide to go into presentation mode. Then use keys to navigate. <button onclick="goFullScreen()">Go fullscreen</button></p>
   </aside>
 
-  <!-- Files and Directories -->  
+  <!-- Files and Directories -->
 
   <div id="fileAndDirectories" class="slide oneline"><div>
     <section>
@@ -24,9 +24,28 @@
       </header>
       <footer class="notes"></footer>
     </section>
-  </div></div> 
+  </div></div>
 
   <div id="q1_1" class="slide"><div>
+    <section>
+      <p>What does the command <span class='code'>ls</span> do when used with the <span class='code'>-l</span> and <span class='code'>-h</span> arguments?</p>
+      <footer class="notes">
+        Now that they've learned it's ok to experiment, they should be experimenting on this one!
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="q1_1-ans" class="slide"><div>
+    <section>
+      <p>What does the command <span class='code'>ls</span> do when used with the <span class='code'>-l</span> and <span class='code'>-h</span> arguments?</p>
+      <img src='pictures/lsExample.png' style='max-width:100%'></img>
+      <footer class="notes">
+        Now that they've learned it's ok to experiment, they should be experimenting on this one!
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="q1_2" class="slide"><div>
     <section>
       <header>
         <h2>A filesystem:</h2>
@@ -34,15 +53,15 @@
       <img src='pictures/filesystem-challenge.svg' class='middle'></img>
       <footer class="notes">
         Point to a couple of folders and ask people to shout out the path.
-      </footer>      
+      </footer>
     </section>
   </div></div>
 
-  <div id="q1_2" class="slide"><div>
+  <div id="q1_3" class="slide"><div>
     <section>
       <img src='pictures/filesystem-challenge.svg' style='max-height:40%; width:auto;'></img>
       <p>If <span class='code'>pwd</span> displays <span class='code'>/users/thing</span>, what will <span class='code'>ls ../backup</span> display? </p>
-      <ol>
+      <ol class='mcq' style='font-size:100%; line-height:100%'>
         <li><span class='code'>../backup: No such file or directory</span></li>
         <li><span class='code'>2012-12-01 2013-01-08 2013-01-27</span></li>
         <li><span class='code'>2012-12-01/ 2013-01-08/ 2013-01-27/</span></li>
@@ -50,14 +69,14 @@
       </ol>
       <footer class="notes">
         A: 4
-      </footer>      
+      </footer>
     </section>
   </div></div>
 
-  <div id="q1_3" class="slide"><div>
+  <div id="q1_4" class="slide"><div>
     <section>
       <p>What does the command <span class='code'>cd</span> without a directory name do?</p>
-      <ol>
+      <ol class='mcq' style='font-size:100%; line-height:100%'>
         <li>It has no effect.</li>
         <li>It changes the working directory to <span class='code'>/</span>.</li>
         <li>It changes the working directory to the user's home directory.</li>
@@ -65,26 +84,7 @@
       </ol>
       <footer class="notes">
         If the don't know, encourage experimentation.
-      </footer>      
-    </section>
-  </div></div>
-
-  <div id="q1_4" class="slide"><div>
-    <section>
-      <p>What does the command <span class='code'>ls</span> do when used with the <span class='code'>-l</span> and <span class='code'>-h</span> arguments?</p>
-      <footer class="notes">
-        Now that they've learned it's ok to experiment, they should be experimenting on this one!
-      </footer>      
-    </section>
-  </div></div>
-
-  <div id="q1_4-ans" class="slide"><div>
-    <section>
-      <p>What does the command <span class='code'>ls</span> do when used with the <span class='code'>-l</span> and <span class='code'>-h</span> arguments?</p>
-      <img src='pictures/lsExample.png' style='max-width:100%'></img>
-      <footer class="notes">
-        Now that they've learned it's ok to experiment, they should be experimenting on this one!
-      </footer>      
+      </footer>
     </section>
   </div></div>
 
@@ -98,26 +98,9 @@
       </header>
       <footer class="notes"></footer>
     </section>
-  </div></div> 
-
-  <div id="q2_1" class="slide"><div>
-    <section>
-      <p>What is the output of the closing <span class='code'>ls</span> command in the sequence shown below?</p>
-      <pre class='code'>
-        $ pwd
-        <br>/home/thing/data
-        <br>$ ls
-        <br>proteins.dat
-        <br>$ mkdir recombine
-        <br>$ mv proteins.dat recombine
-        <br>$ cp recombine/proteins.dat ../proteins-saved.dat
-        <br>$ ls
-      </pre>
-      <footer class="notes"></footer>      
-    </section>
   </div></div>
 
-  <div id="q2_2" class="slide"><div>
+  <div id="q2_1" class="slide"><div>
     <section>
       <p>Suppose that:</p>
       <pre class='code'>
@@ -131,7 +114,20 @@
         <br>$ ls analyzed
         <br>fructose.dat    sucrose.dat
       </pre>
-      <footer class="notes"></footer>      
+      <footer class="notes"></footer>
+    </section>
+  </div></div>
+
+  <div id="q2_2" class="slide"><div>
+    <section>
+      <p>Suppose that you created a <span class='code'>.txt</span> file in your current directory to contain a list of the statistical tests you will need to do to analyze your data, and named it: <span class='code'>statstics.txt</span>. After creating and saving this file you realize you misspelled the filename! You want to correct the mistake, which of the following commands could you use to do so?</p>
+      <ol class='mcq' style='font-size:100%; line-height:100%'>
+        <li><span class='code'>cp statstics.txt statistics.txt</span></li>
+        <li><span class='code'>mv statstics.txt statistics.txt</span></li>
+        <li><span class='code'>mv statstics.txt .</span></li>
+        <li><span class='code'>cp statstics.txt .</span></li>
+      </ol>
+      <footer class="notes">b</footer>
     </section>
   </div></div>
 
@@ -148,9 +144,9 @@
         cp a.txt b.txt c.txt
       </pre>
       <footer class="notes">
-        Remind the students not to worry if they don't remember ALL the little ins and outs of every command.  
+        Remind the students not to worry if they don't remember ALL the little ins and outs of every command.
         What really matters is they get used to trying things out on their own!
-      </footer>      
+      </footer>
     </section>
   </div></div>
 
@@ -163,7 +159,7 @@
       </header>
       <footer class="notes"></footer>
     </section>
-  </div></div> 
+  </div></div>
 
   <div id="q3_1" class="slide"><div>
     <section>
@@ -175,7 +171,7 @@
         <br>22
         <br>6
       </pre>
-      <footer class="notes"></footer>      
+      <footer class="notes"></footer>
     </section>
   </div></div>
 
@@ -190,12 +186,24 @@
         ls mylist.txt
       </pre>
       <footer class="notes">
-        This is in the spirit of q2 in the notes, but I think the illustration will be clearer like this.
-      </footer>      
+      </footer>
     </section>
   </div></div>
 
   <div id="q3_3" class="slide"><div>
+    <section>
+      <p>In our current directory, we want to find the 3 files which have the least number of lines. Which command listed below would work?</p>
+      <ol class='mcq' style='font-size:100%; line-height:100%'>
+        <li><span class='code'>wc -l * > sort -n > head -3</span></li>
+        <li><span class='code'>wc -l * | sort -n | head 1-3</span></li>
+        <li><span class='code'>wc -l * | head -3 | sort -n</span></li>
+        <li><span class='code'>wc -l * | sort -n | head -3</span></li>
+      </ol>
+      <footer class="notes">b</footer>
+    </section>
+  </div></div>
+
+  <!--div id="q3_4" class="slide"><div>
     <section>
       <p>Have a look at <span class='code'>shellFiles/questions/salmon.txt</span>.  What does</p>
       <pre class='code'>
@@ -205,20 +213,20 @@
 
       <footer class="notes">
         sort salmon.txt | uniq
-      </footer>      
+      </footer>
     </section>
-  </div></div>
+  </div></div-->
 
-  <div id="q3_4" class="slide"><div>
+  <!--div id="q3_4" class="slide"><div>
     <section>
       <p>Have a look at <span class='code'>shellFiles/questions/animals.txt</span>.  What text passes through each pipe in the following, and why?</p>
       <pre class='code'>
         cat animals.txt | head -5 | tail -3 | sort -r > final.txt
       </pre>
 
-      <footer class="notes"></footer>      
+      <footer class="notes"></footer>
     </section>
-  </div></div>
+  </div></div-->
 
   <!-- Loops -->
 
@@ -229,7 +237,7 @@
       </header>
       <footer class="notes"></footer>
     </section>
-  </div></div> 
+  </div></div>
 
   <div id="q4_1" class="slide"><div>
     <section>
@@ -245,11 +253,11 @@
         <br>done
       </pre>
 
-      <footer class="notes"></footer>      
+      <footer class="notes"></footer>
     </section>
   </div></div>
 
-  <div id="q4_2" class="slide"><div>
+  <!--div id="q4_2" class="slide"><div>
     <section style='font-size:80%'>
       <p style='margin-bottom:0.5em'>Suppose that <span class='code'>ls</span> initially displays:</p>
       <pre class='code' style='margin-bottom:0.5em'>
@@ -270,7 +278,31 @@
         <li>None of the above.</li>
       </ol>
 
-      <footer class="notes"></footer>      
+      <footer class="notes"></footer>
+    </section>
+  </div></div-->
+
+  <div id="q4_2" class="slide"><div>
+    <section style='font-size:80%'>
+      <p style='margin-bottom:0.5em'>Suppose that <span class='code'>ls</span> displays:</p>
+      <pre class='code' style='margin-bottom:0.5em'>
+        fructose.dat    glucose.dat   sucrose.dat  maltose.txt
+      </pre>
+      <p style='margin-bottom:0.5em'>What would be the output of the following loop?</p>
+      <pre class='code' style='margin-bottom:0.5em'>
+        for datafile in *.dat
+        <br>do
+        <br>&nbsp cat $datafile >> sugar.dat
+        <br>done
+      </pre>
+      <ol class='mcq' style='font-size:100%; line-height:100%'>
+        <li>All of the text from <span class='code'>fructose.dat</span>, <span class='code'>glucose.dat</span> and <span class='code'>sucrose.dat</span> would be concatenated and saved to a file called <span class='code'>sugar.dat</span>.</li>
+        <li>The text from <span class='code'>sucrose.dat</span> will be saved to a file called <span class='code'>sugar.dat</span>.</li>
+        <li>All of the text from <span class='code'>fructose.dat</span>, <span class='code'>glucose.dat</span>, <span class='code'>sucrose.dat</span> and <span class='code'>maltose.txt</span> would be concatenated and saved to a file called <span class='code'>sugar.dat</span>.</li>
+        <li>All of the text from <span class='code'>fructose.dat</span>, <span class='code'>glucose.dat</span> and <span class='code'>sucrose.dat</span> would be printed to the screen and saved to a file called <span class='code'>sugar.dat</span></li>
+      </ol>
+
+      <footer class="notes"></footer>
     </section>
   </div></div>
 
@@ -294,21 +326,7 @@
         <br>done
       </pre>
 
-      <footer class="notes"></footer>      
-    </section>
-  </div></div>
-
-  <div id="q4_4" class="slide"><div>
-    <section>
-      <p>Describe in words what the following does:</p>
-      <pre class='code'>
-        for how in frog11 prcb redig
-        <br>do
-        <br>&nbsp    $how -limit 0.01 NENE01729B.txt
-        <br>done
-      </pre>
-
-      <footer class="notes"></footer>      
+      <footer class="notes"></footer>
     </section>
   </div></div>
 
@@ -321,14 +339,34 @@
       </header>
       <footer class="notes"></footer>
     </section>
-  </div></div> 
+  </div></div>
 
   <div id="q5_1" class="slide"><div>
     <section>
-      <p>Have a look at <span class='code'>shellFiles/questions/zoo_1.txt</span> and <span class='code'>zoo_2.txt</span>.  Write a shell script called <span class='code'>species.sh</span> that takes any number of filenames as command-line parameters, and uses <span class='code'>cut</span>, <span class='code'>sort</span>, and <span class='code'>uniq</span> to print a list of the unique species appearing in each of those files separately.</p>
-      <footer class="notes"></footer>      
+      <div style='margin-bottom:1em'>In the molecules directory, you have a shell script called <span class='code'>script.sh</span> containing the following commands:
+        <pre class='code' style='margin-bottom:5px'>head $2 $1
+        <br>tail $3 $1</pre>
+        While you are in the molecules directory, you type:
+        <br><span class='code'>bash script.sh '*.pdb' -1 -1</span>
+        <br>Which of the following outputs do you expect to see?
+      </div>
+
+      <ol class='mcq' style='font-size:100%; line-height:100%'>
+        <li>All of the lines between the first and the last lines of each file ending in <span class='code'>*.pdb</span> in the molecules directory </li>
+        <li>The first and the last line of each file ending in <span class='code'>*.pdb</span> in the molecules directory</li>
+        <li>The first and the last line of each file in the molecules directory</li>
+        <li>An error because of the quotes around <span class='code'>*.pdb</span></li>
+      </ol>
+      <footer class="notes"></footer>
     </section>
   </div></div>
+
+  <!--div id="q5_2" class="slide"><div>
+    <section>
+      <p>Have a look at <span class='code'>shellFiles/questions/zoo_1.txt</span> and <span class='code'>zoo_2.txt</span>.  Write a shell script called <span class='code'>species.sh</span> that takes any number of filenames as command-line parameters, and uses <span class='code'>cut</span>, <span class='code'>sort</span>, and <span class='code'>uniq</span> to print a list of the unique species appearing in each of those files separately.</p>
+      <footer class="notes"></footer>
+    </section>
+  </div></div-->
 
   <div id="q5_2" class="slide"><div>
     <section>
@@ -337,18 +375,18 @@
         $ bash longest.sh /tmp/data pdb
       </pre>
       <p>should print the name of the <span class='code'>.pdb</span> file in <span class='code'>/tmp/data</span> that has the most lines.</p>
-      <footer class="notes"></footer>      
+      <footer class="notes"></footer>
     </section>
   </div></div>
 
-  <div id="q5_3" class="slide"><div>
+  <!--div id="q5_3" class="slide"><div>
     <section>
       <p>If you run the command:</p>
       <pre class='code'>
         history | tail -5 > recent.sh
       </pre>
       <p>the last command in the file is the <span class='code'>history</span> command itself, i.e., the shell has added <span class='code'>history</span> to the command log before actually running it. In fact, the shell always adds commands to the log before running them. Why do you think it does this?</p>
-      <footer class="notes"></footer>      
+      <footer class="notes"></footer>
     </section>
   </div></div>
 
@@ -375,9 +413,9 @@
           </pre>
         </li>
       </ol>
-      <footer class="notes"></footer>      
+      <footer class="notes"></footer>
     </section>
-  </div></div>
+  </div></div-->
 
   <!-- Finding Things -->
 
@@ -388,19 +426,27 @@
       </header>
       <footer class="notes"></footer>
     </section>
-  </div></div> 
+  </div></div>
 
   <div id="q6_1" class="slide"><div>
     <section>
-      <p>Write a short explanatory comment for the following shell script:</p>
-      <pre class='code'>
-        find . -name '*.dat' -print | wc -l | sort -n
-      </pre>
-      <footer class="notes"></footer>      
+      <p>Try <a href='https://github.com/swcarpentry/shell-novice/blob/gh-pages/06-find.md#using-grep-challenge'>this problem</a> from the notes.</p>
+
+      <footer class="notes"></footer>
     </section>
   </div></div>
 
-  <div id="q6_2" class="slide" style='font-size:80%'><div>
+  <div id="q6_2" class="slide"><div>
+    <section>
+      <p>Write a short explanatory comment for the following shell script:</p>
+      <pre class='code'>
+        find . -name '*.pdb' | wc -l
+      </pre>
+      <footer class="notes"></footer>
+    </section>
+  </div></div>
+
+  <!--div id="q6_2" class="slide" style='font-size:80%'><div>
     <section>
       <p>The <span class='code'>-v</span> flag to <span class='code'>grep</span> inverts pattern matching, so that only lines which do not match the pattern are printed. Given that, which of the following commands will find all files in <span class='code'>/data</span> whose names end in <span class='code'>ose.dat</span> (e.g., <span class='code'>sucrose.dat</span> or <span class='code'>maltose.dat</span>), but do not contain the word <span class='code'>temp?</span></p>
       <ol>
@@ -421,9 +467,9 @@
         </li>
         <li>None of the above.</li>
       </ol>
-      <footer class="notes"></footer>      
+      <footer class="notes"></footer>
     </section>
-  </div></div>
+  </div></div-->
 
    <script src="scripts/script.js"></script>
   <!-- Copyright © 2010–2012 Vadim Makeev — pepelsbey.net -->

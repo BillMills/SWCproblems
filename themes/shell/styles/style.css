@@ -746,3 +746,7 @@ ol.mcq{
 	font-size: 150%;
 	list-style-type: lower-alpha;
 }
+
+ol.mcq li{
+	margin-bottom: 0.5em;
+}
